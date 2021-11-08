@@ -32,13 +32,13 @@ h1{
     font-weight: 500;
     font-size: 3vw;
     letter-spacing: 0.1vw;
-    text-shadow: 2px -2px 5px rgba(255, 255, 255, 0.4); 
-    margin-bottom: 4vh;
+    text-shadow: 1px -1px 4px rgba(255, 255, 255, 0.4); 
+    margin-bottom: 8vh;
 }
 
 .main-conteiner{
     width: 95%;
-    border: 2px solid white;
+   
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -53,20 +53,22 @@ h1{
     width: 22%;
     
   height: auto;
-    border: 1px solid red;
+   
     padding: 0.5vw;
     box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
    
 }
 .title-section {
-    border: 1px solid blue;
+ 
     text-align: center;
-    padding: 0.7vw;
+    padding: 1vw;
     color: #E2E5DE;
-    font-size: 1.2vw;
+    font-size: 1.4vw;
     font-weight: 500;
     border-radius: 4px;
+     text-shadow: 2px -2px 5px rgba(255, 255, 255, 0.4); 
 }
 .first {
     background-color: #a2622d;
@@ -82,23 +84,24 @@ h1{
 }
 
 .drop-conteiner{
-    border: 1px solid yellow;
+  
     min-height: 6vh;
     margin-top: 3vh;
-     background-color: rgba(0, 0, 0, 0.6);
+     background-color: rgba(0, 0, 0, 0.1);
      max-height: 45vh;
+     border-radius: 4px;
     overflow-y: auto;
 }
 .draggable{
     width: 90%;
     color: #fffaec;
-    font-size: 1vw;
+    font-size: 1.2vw;
     /* margin-top: 3vh;
     margin-bottom: 3vh; */
     margin: 2vh auto;
-    padding:2vh 1vw;
+    padding:2.2vh 1vw;
   
-    border: 1px solid violet;
+  
     background-color: #000102;
     font-weight: 500;
     cursor: move;
@@ -111,9 +114,8 @@ h1{
 
 
 .add-save{
-    /* display: flex;
-    justify-content: space-between; */
-    border: 1px solid white;
+  
+  
     color: #fffaec;
     font-size: 0.9vw;
     margin-bottom: 2vh;
@@ -123,7 +125,7 @@ h1{
 .add-item,.save-item{
     height: 5.5vh;
     width: 6.2vw;
-    border: 1px solid white;
+   
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,7 +161,7 @@ textarea{
 }
 
 .draggable.dragging{
-   background-color: yellow;
+  opacity: 0.5;
 }
 
 
@@ -234,8 +236,12 @@ textarea{
     }
 
     .title-section {
-    padding: 2.2vw;
-    font-size: 4vw;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    margin-top: 4vh;
+    padding: 4vw;
+    font-size: 4.2vw;
 }
 
 .draggable {

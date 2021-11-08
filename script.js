@@ -10,22 +10,9 @@ let newArray = [];
 
 
 let ls = localStorage.getItem("todos");
-//ovde treba da gledamo ako je todos iz local storage null ako ne postiji
-//onda je array of items prazan ako nije prazan onda dohvatimo podatke iz lokal storage i pravimo niz od njega
 
 let arrayOfItems = [];
 
-// arrayOfItems = ls ? JSON.parse(localStorage.getItem("todo")): [
-//           { content: "Release the course", location: 1 },
-//           { content: "Sit back and relax", location: 1 },
-//           { content: "Work on projects", location: 2 },
-//           { content: "Listen to music", location: 2 },
-//           { content: "Being cool", location: 3 },
-//           { content: "Getting stuff done", location: 3 },
-//           { content: "Being uncool", location: 4 }
-//         ];
-
- 
 
 let initiallArray = [
   { content: "Release the course", location: 1 },
@@ -74,7 +61,7 @@ function getData(e){
 }
 
 
-//ovde moramo da dodamo local storage-u 
+
 function makeItem(item,location){
     if(item){
         const task = {
@@ -94,12 +81,8 @@ function makeItem(item,location){
 
 function renderItems(array){
   
-    //prvo moramo da ocistimo sav prethodni sadrzaj u conteinerima
     dropConteiners.forEach(dropConteiner=>{
        dropConteiner.innerHTML = "";
-      
-       //ovde sada treba da pretrazujemo location i da smestamo odgovarajuci elemente u
-       //kontejnere sa odgavarajucim lokacijama
 
          array.forEach((arr) => {
          
@@ -107,7 +90,6 @@ function renderItems(array){
                   const newDiv = document.createElement("div");
                   newDiv.setAttribute("draggable", "true");
                   newDiv.setAttribute("class","draggable");
-                  //setting items to be draggable
                   newDiv.textContent = arr.content;
                   dropConteiner.appendChild(newDiv);
            }
@@ -151,10 +133,7 @@ dropConteiners.forEach((item) => {
   });
 
   item.addEventListener("dragend", function(e){
-         console.log("dragEnd");
          e.target.classList.remove("dragging");
-         //na drugom mestu stavljamo null za dragableItem i dragableConteinerNum
-         //stavili smo u funkciju drag
   });
 });
 
@@ -179,52 +158,27 @@ dropConteiners.forEach(dropCont =>{
 
 function dropped(e){
     e.preventDefault();
-    //ovde moramo da updejtujemo niz da pokupimo sve i da ponovo 
-    //pusujemo u local storage
     dropConteiners.forEach(newdrop=>{
-       
-        console.log(newdrop)
         let afterDroppingLocation = newdrop.getAttribute("data-location");
         if(newdrop.hasChildNodes()){
-            console.log(newdrop.children)
-            // for(let i=0)
             for(let i=0;i<newdrop.children.length; i++){
-                console.log(newdrop.children[i].innerText);
                 let newText = newdrop.children[i].innerText;
                 let newObj = {
                     content:newText,
                     location:afterDroppingLocation,
                 }
-
                 newArray.push(newObj);
-              
-               
             }
-         
-            
-             //ovde praznimo glavni niz;
-             //dodajemo inicijalni niz koji se ispijuje
-            //  arrayOfItems.push(initiallArray);
-            //  arrayOfItems.push(newArray);
-            //  console.log(newArray);
-            //  localStorage.removeItem("todos");
-            //  //ovde ce se mozda duplirati
-            //  addToLocalStorage(arrayOfItems);
         }
-        //    console.log(newArray);
-        //    addToLocalStorage(...newArray)
-       
     })
-    console.log(newArray);
+  
     localStorage.removeItem("todos");
     arrayOfItems = [];
     arrayOfItems=[...newArray]
-    // localStorage.setItem("todos",newArray);
     addToLocalStorage(arrayOfItems);
     newArray = [];
     draggableItem = null;
     draggableItemConteinerNum = null;
-
 }
 
 
