@@ -17,6 +17,7 @@ body, html {
   background-image: url("./images/image.jpg");
   /* Full height */
   height: 100%; 
+ 
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -50,7 +51,8 @@ h1{
 
 .section {
     width: 22%;
-    height: auto;
+    
+  height: auto;
     border: 1px solid red;
     padding: 0.5vw;
     box-sizing: border-box;
@@ -81,28 +83,32 @@ h1{
 
 .drop-conteiner{
     border: 1px solid yellow;
+    min-height: 6vh;
+    margin-top: 3vh;
+     background-color: rgba(0, 0, 0, 0.6);
+     max-height: 45vh;
+    overflow-y: auto;
 }
-.drop-conteiner>div{
+.draggable{
+    width: 90%;
     color: #fffaec;
     font-size: 1vw;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    padding: 1.2vh;
+    /* margin-top: 3vh;
+    margin-bottom: 3vh; */
+    margin: 2vh auto;
+    padding:2vh 1vw;
+  
     border: 1px solid violet;
     background-color: #000102;
     font-weight: 500;
+    cursor: move;
     
 }
 
 .add-save-conteiner{
     margin-top: 3vh;
 }
-/* .add-save>div:first-of-type{
-    color: #fffaec;
-    font-size: 0.8vw;
-    letter-spacing: 0.1vw;
-    font-weight: 500;
-} */
+
 
 .add-save{
     /* display: flex;
@@ -127,7 +133,7 @@ h1{
 }
 .add-item{
     position: absolute;
-    left: 0.5vw;
+    left: 0.7vw;
 }
 .save-item{
     background-color: #282828;
@@ -152,4 +158,102 @@ textarea{
     display: none;
 }
 
+.draggable.dragging{
+   background-color: yellow;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #606060;
+  box-shadow: inset 0 0 2px rgba(122, 98, 98, 0.4);
+  width: 6px;
+  /* background-color: transparent; */
+  border-radius: 10px;
+  margin-left: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /* background:  #888;  */
+  border-radius: 10px;
+background-color:#B8B8B8;
+  box-shadow: inset 0 0 2px rgba(122, 98, 98, 0.4);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #F0F0F0; 
+}
+
+
+@media screen and (max-width:1024px){
+  h1{
+      font-size: 3.5vh;
+  }
+.title-section {
+    padding: 1.2vw;
+    font-size: 2vw;
+    }
+.drop-conteiner{
+    margin-top: 2vh;
+}
+.draggable{
+   padding: 1vh 0.5vw;
+   font-size: 1.5vw;
+}
+   .add-save-conteiner {
+    margin-top: 1.5vh;
+}
+.add-save{
+    height: 3.5vh;
+    font-size: 1.1vw;
+}
+.add-item, .save-item {
+    height: 3.5vh;
+    width: 7vw;
+  
+}
+textarea{
+    height: 8vh;
+}
+}
+
+@media screen and (max-width:480px){
+    .main-bg{
+        padding: 0;
+        height: auto;
+    }
+    .section{
+        width: 100%;
+        margin-bottom:5vh
+    }
+
+    .title-section {
+    padding: 2.2vw;
+    font-size: 4vw;
+}
+
+.draggable {
+    width: 95%;
+    padding: 2vh;
+    font-size: 3.2vw;
+}
+.add-save {
+    height: 6vh;
+    font-size: 3vw;
+}
+.add-item, .save-item {
+    height: 6vh;
+    width: 20vw;
+  
+}
+textarea{
+    height: 10vh;
+}
+}
 
